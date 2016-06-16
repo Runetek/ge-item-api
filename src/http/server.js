@@ -22,6 +22,12 @@ server.route({
 
 server.route({
   method: 'GET',
+  path: '/api/item-prices/dump',
+  config: routes.itemPriceDump
+})
+
+server.route({
+  method: 'GET',
   path: '/api/item-prices/{itemId}',
   config: routes.singleItemPriceLookup
 })

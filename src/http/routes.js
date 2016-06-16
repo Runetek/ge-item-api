@@ -29,3 +29,12 @@ export const singleItemPriceLookup = {
       .then(item => reply(item))
   }
 }
+
+export const itemPriceDump = {
+  handler: (req, reply) => {
+    Models.ItemPrice.find()
+      .select({ itemId: 1, name: 1, members: 1, latestPrice: 1 })
+      .exec()
+      .then(items => reply(Serializers.itemPrices(items)))
+  }
+}
