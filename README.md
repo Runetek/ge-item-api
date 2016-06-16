@@ -23,7 +23,7 @@ Starting the crawler:
 
 Starting the API server (after crawling the GE database at least once):
 
-`npm run server`
+`npm start`
 
 After the item prices have been crawled, you can start hitting the API in your browser.
 With the limits imposed by RuneScape's servers it takes roughly 4-5 hours to crawl the

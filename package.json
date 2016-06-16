@@ -1,7 +1,7 @@
 {
   "scripts": {
     "crawler": "babel-node src/crawler/test.js",
-    "server": "babel-node src/http/server.js"
+    "start": "babel-node src/http/server.js"
   },
   "dependencies": {
     "bluebird": "^3.4.0",
