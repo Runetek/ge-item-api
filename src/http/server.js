@@ -4,7 +4,15 @@ const Hapi = require('hapi')
 const Good = require('good')
 
 const server = new Hapi.Server()
-server.connection({ port: 8080 })
+server.connection({
+  port: 8080,
+  host: 'localhost',
+  labels: ['api'],
+  routes: {
+    cache: { privacy: 'public', expiresAt: '00:00' },
+    cors: { origin: [ 'https://*.runetek.io' ] }
+  }
+})
 
 server.route({
   method: 'GET',

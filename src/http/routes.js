@@ -13,7 +13,6 @@ const parseIds = function (ids) {
 }
 
 export const bulkItemPriceLookup = {
-  cache: { privacy: 'public', expiresAt: '00:00' },
   handler: (req, reply) => {
     let ids = parseIds(req.query.ids)
     Models.ItemPrice.find({ itemId: { $in: ids } })
@@ -24,7 +23,6 @@ export const bulkItemPriceLookup = {
 }
 
 export const singleItemPriceLookup = {
-  cache: { privacy: 'public', expiresAt: '00:00' },
   handler: (req, reply) => {
     Models.ItemPrice.findById(req.params.itemId)
       .then(Serializers.itemPrice)
