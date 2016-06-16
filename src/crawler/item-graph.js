@@ -17,6 +17,10 @@ export const createItemGraphListener = () => {
         prices = prices.map(transformItemPrice)
 
         Models.ItemPrice.findById(id).then(item => {
+          if (! item) {
+            item = new Models.ItemPrice({ itemId: id, name, members })
+          }
+
           item.prices = prices
           item.updatedAt = Date.now()
           item.latestPrice = {
