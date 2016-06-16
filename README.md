@@ -19,11 +19,11 @@ Fault tolerant Old School RuneScape item price crawler and API.
 
 Starting the crawler:
 
-`./node_modules/.bin/babel-node src/crawler/test.js`
+`npm run crawler`
 
 Starting the API server (after crawling the GE database at least once):
 
-`./node_modules/.bin/babel-node src/http/server.js`
+`npm run server`
 
 After the item prices have been crawled, you can start hitting the API in your browser.
 With the limits imposed by RuneScape's servers it takes roughly 4-5 hours to crawl the

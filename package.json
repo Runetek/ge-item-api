@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "consumer": "babel-node src/consumer.js",
-    "producer": "babel-node src/producer.js"
+    "crawler": "babel-node src/crawler/test.js",
+    "server": "babel-node src/http/server.js"
   },
   "dependencies": {
     "bluebird": "^3.4.0",
