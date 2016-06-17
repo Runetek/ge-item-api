@@ -19,7 +19,7 @@ const itemPriceSchema = mongoose.Schema({
 itemPriceSchema.statics.findById = function (itemId) {
   return this.model('ItemPrice', itemPriceSchema)
     .find({ itemId })
-    .select({ itemId: 1, name: 1, members: 1, latestPrice: 1 })
+    .select({ itemId: 1, name: 1, members: 1, latestPrice: 1, updatedAt: 1 })
     .exec()
     .then(items => items[0])
 }

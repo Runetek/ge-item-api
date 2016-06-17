@@ -16,7 +16,7 @@ export const bulkItemPriceLookup = {
   handler: (req, reply) => {
     let ids = parseIds(req.query.ids)
     Models.ItemPrice.find({ itemId: { $in: ids } })
-      .select({ itemId: 1, name: 1, members: 1, latestPrice: 1 })
+      .select({ itemId: 1, name: 1, members: 1, latestPrice: 1, updatedAt: 1 })
       .exec()
       .then(items => reply(Serializers.itemPrices(items)))
   }
@@ -33,7 +33,7 @@ export const singleItemPriceLookup = {
 export const itemPriceDump = {
   handler: (req, reply) => {
     Models.ItemPrice.find()
-      .select({ itemId: 1, name: 1, members: 1, latestPrice: 1 })
+      .select({ itemId: 1, name: 1, members: 1, latestPrice: 1, updatedAt: 1 })
       .exec()
       .then(items => reply(Serializers.itemPrices(items)))
   }
