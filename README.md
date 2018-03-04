@@ -4,6 +4,25 @@ Fault tolerant Old School RuneScape item price crawler and API.
 
 ## Setup 
 
+### Docker
+```
+# Clone repository
+git clone https://github.com/Runetek/ge-item-api
+cd ge-item-api
+
+# Build Dockerfile
+docker-compose build
+
+# Crawl GE Database
+docker-compose run geitemapi crawler
+
+# Start API server
+docker-compose start
+
+# Stop API server
+docker-compose stop
+```
+
 ### Requirements
 
 * [rabbit-server](https://www.rabbitmq.com/download.html)
@@ -29,8 +48,3 @@ After the item prices have been crawled, you can start hitting the API in your b
 With the limits imposed by RuneScape's servers it takes roughly 4-5 hours to crawl the
 entire Grand Exchange. At the time of writing there are just under 3100 tradable items
 indexed on the Grand Exchange API.
-
-## Todo/Notes
-
-* Add Dockerfile and Docker Compose config for easy onboarding/deployment
-

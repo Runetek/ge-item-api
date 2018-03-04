@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 // replace deprecated 'mpromises' usage
 mongoose.Promise = global.Promise
 
-mongoose.connect('mongodb://localhost/itemprices')
+const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost'
+mongoose.connect(mongodbUri + '/itemprices')
 
 const itemPriceSchema = mongoose.Schema({
   itemId: { $type: Number, index: { unique: true } },
