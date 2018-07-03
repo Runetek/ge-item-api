@@ -1,0 +1,30 @@
+version: '3'
+services:
+  geitemapi:
+    build: .
+    image: geitemapi
+    environment:
+      API_URI: "http://0.0.0.0:8080"
+      MONGODB_URI: "mongodb://mongodb-server:27017"
+      RABBITMQ_URI: "amqp://rabbitmq:rabbitmq@rabbitmq-server:5672"
+    ports:
+      - 8080:8080
+    links:
+      - rabbitmq-server:rabbitmq-server
+      - mongodb-server:mongodb-server
+  rabbitmq-server:
+    image: rabbitmq
+    hostname: rabbitmq-server
+    environment:
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+    volumes:
+      - rabbitmq-volume:/var/lib/rabbitmq
+  mongodb-server:
+    image: mongo
+    hostname: mongodb-server
+    volumes:
+      - mongodb-volume:/data/db
+volumes:
+  rabbitmq-volume:
+  mongodb-volume:

@@ -2,11 +2,16 @@ import * as routes from './routes'
 
 const Hapi = require('hapi')
 const Good = require('good')
+const url = require('url')
+
+const apiUri = url.parse(
+  process.env.API_URI || 'http://localhost:8080'
+)
 
 const server = new Hapi.Server()
 server.connection({
-  port: 8080,
-  host: 'localhost',
+  port: apiUri.port,
+  host: apiUri.hostname,
   labels: ['api'],
   routes: {
     cache: { privacy: 'public', expiresAt: '00:00' },
